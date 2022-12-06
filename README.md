@@ -1,9 +1,14 @@
 # Instructions for Validation Phase submission
 During the validation phase, competitors are required to submit mask predictions (*.nii.gz) for task 1 and the mortality rate predictions (*.csv) for task 2. We require zipped submission for task 1 to the submission page, and the zipped file should be arranged as follows:
+
 ── teamname_ValPhase.zip
+
    ├── AIIB_001.nii.gz
+   
    └── AIIB_002.nii.gz
+   
    ├── ...
+   
    └── AIIB_110.nii.gz
 
 
