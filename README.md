@@ -22,11 +22,11 @@ The XXX challenge will be held as a Type II challenge that will not release the 
 
 We require a script file that automatically performs inference on the test set, i.e., outputting the predicted segmentation masks or mortality rates on the test set. We did not require the competitors to participate in both tasks, so for different tasks, the inference script can vary.
 
-For task 1, we require that the input folder be mounted into *input* and the output folder be *output*. In addition, the output files should have the same file name as the input, e.g. the input file input/AIIB_001.nii.gz must have a matched output prediction named output/AIIB_001.nii.gz.  .
+For task 1, we require that the input folder be mounted into *input* and the output folder be *output*. In addition, the output files should have the same file name as the input, e.g. the input file input/AIIB_001.nii.gz must have a matched output prediction named output/AIIB_001.nii.gz. An example of the inference script can be found [here].
 
-For task 2, the mortality predictions on all test files should be summarized in one single CSV file, named as output/mortality.csv. The input should be XXXX.
+For task 2, the mortality predictions on all test files should be summarized in one single CSV file, named as output/mortality.csv. The input should be the ground truth segmentation masks mounted at *input_segmentation* and the CT volumes mounted at *input_image*. An example of the inference script can be found [here].
 
-An example of the inference script can be found [here].
+
 
 
 ### Step 2. Containerize the application using Docker
