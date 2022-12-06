@@ -7,18 +7,18 @@ input_dir = '/input/'
 path_img = os.path.join(input_dir,'{}.nii.gz')
 path_pred = '/output/{}.nii.gz'
 
-list_case = [k for k in os.listdir(input_dir)]
+list_case = [k.split('.')[0] for k in os.listdir(input_dir)]
 
 for case in list_case:
-    t2_img = sitk.ReadImage(path_img.format(case))
+    img = sitk.ReadImage(path_img.format(case))
 
     ##
     # your logic here. Below we do binary thresholding as a demo
     ##
 
     # using SimpleITK to do binary thresholding between 100 - 10000
-    vs_pred = sitk.BinaryThreshold(t2_img, lowerThreshold=400, upperThreshold=500)
-    cochlea_pred = sitk.BinaryThreshold(t2_img, lowerThreshold=900, upperThreshold=1100)
+    vs_pred = sitk.BinaryThreshold(img, lowerThreshold=400, upperThreshold=500)
+    cochlea_pred = sitk.BinaryThreshold(img, lowerThreshold=900, upperThreshold=1100)
 
     result = vs_pred + 2*cochlea_pred
 
