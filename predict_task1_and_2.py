@@ -18,14 +18,11 @@ for case in list_case:
     img = sitk.ReadImage(path_img.format(case))
     seg = sitk.ReadImage(path_seg.format(case))
 
-    ##
-    # your logic here. Below we do airway volume counting and thresholding as an example
+    # ==========your logic here. Below we do airway volume counting and thresholding as an example==============
     seg_numpy = sitk.GetArrayFromImage(seg)
-
-    # using SimpleITK to do binary thresholding between 100 - 10000
     pred = seg_numpy.sum()/(seg_numpy.shape[0]*seg_numpy.shape[1]*seg_numpy.shape[2])
+    # ==========================================================================================================
     result.append(pred)
-
     # record the result
 
 # save the result
